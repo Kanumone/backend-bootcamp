@@ -1,0 +1,43 @@
+version: "3"
+
+services:
+#  php:
+#    build:
+#      context: ./docker/php
+#    volumes:
+#      - './src:/var/www/html'
+#    depends_on:
+#      - db
+#    container_name: app_php
+#
+#  nginx:
+#    image: nginx:latest
+#    ports:
+#      - '80:80'
+#    volumes:
+#      - './docker/nginx/conf.d:/etc/nginx/conf.d'
+#      - './src:/var/www/html'
+#    depends_on:
+#      - php
+#    container_name: app_nginx
+
+  db:
+    image: mysql:8
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - '3306:3306'
+    volumes:
+      - './docker/volumes/db:/var/lib/mysql'
+    container_name: bootcamp_db
+
+  php-my-admin:
+    image: phpmyadmin
+    environment:
+      PMA_HOST: db
+      PMA_ARBITRARY: 1
+    ports:
+      - '8080:80'
+    depends_on:
+      - db
+    container_name: bootcamp_admin
