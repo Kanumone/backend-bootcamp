@@ -49,7 +49,8 @@ Build web application with nginx, php, mysql
 ## How to build the project
 
 - clone repo
-- run `docker-compose up`
+- `cd backend-bootcamp`
+- run `docker-compose up -d`
 - `docker exec -it bootcamp_db mysql -uroot -proot`
 - `create database bootcamp; exit;`
 - `cat db/dump.sql | docker exec -i bootcamp_db /usr/bin/mysql -u root --password=root bootcamp`
