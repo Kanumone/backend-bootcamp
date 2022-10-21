@@ -22,7 +22,8 @@ services:
 #    container_name: app_nginx
 
   db:
-    image: mysql:8
+    build:
+      context: ./docker/db
     environment:
       MYSQL_ROOT_PASSWORD: root
     ports:
