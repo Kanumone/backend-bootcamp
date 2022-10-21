@@ -50,6 +50,9 @@ Build web application with nginx, php, mysql
 
 - clone repo
 - run `docker-compose up`
+- `docker exec -it bootcamp_db mysql -uroot -proot`
+- `create database bootcamp; exit;`
+- `cat db/dump.sql | docker exec -i bootcamp_db /usr/bin/mysql -u root --password=root bootcamp`
 - connect localhost:8080
 - database: db; username: root; password: root
 
