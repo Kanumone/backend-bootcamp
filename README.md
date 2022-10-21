@@ -60,9 +60,11 @@ Build web application with nginx, php, mysql
 ## Database
 
 ![er diagram](./db/er_diagram.png)
+
 pic_1. Er diagram
 
 ![](./db/physical_diagram.png)
+
 pic_2. Physical diagram mysql
 
 ### Описание
