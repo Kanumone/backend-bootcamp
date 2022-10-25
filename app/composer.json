@@ -13,5 +13,7 @@
             "email": "KuzminAAwork@yandex.ru"
         }
     ],
-    "require": {}
+    "require": {
+        "phroute/phroute": "^2.2"
+    }
 }
