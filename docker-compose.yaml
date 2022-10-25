@@ -1,28 +1,28 @@
 version: "3"
 
 services:
-#  php:
-#    build:
-#      context: ./docker/php
-#    volumes:
-#      - './src:/var/www/html'
-#    depends_on:
-#      - db
-#    container_name: app_php
-#
-#  nginx:
-#    image: nginx:latest
-#    ports:
-#      - '80:80'
-#    volumes:
-#      - './docker/nginx/conf.d:/etc/nginx/conf.d'
-#      - './src:/var/www/html'
-#    depends_on:
-#      - php
-#    container_name: app_nginx
+  php:
+    build:
+      context: ./docker/php
+    volumes:
+      - './app:/var/www/html'
+    depends_on:
+      - db
+    container_name: app_php
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - '80:80'
+    volumes:
+      - './docker/nginx/conf.d:/etc/nginx/conf.d'
+      - './app:/var/www/html'
+    depends_on:
+      - php
+    container_name: app_nginx
 
   db:
-    image: mysql:8.0
+    image: mysql:latest
     environment:
       MYSQL_ROOT_PASSWORD: root
     ports:
