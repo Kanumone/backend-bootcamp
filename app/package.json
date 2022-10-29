@@ -1,0 +1,24 @@
+{
+  "name": "trial-assignments",
+  "version": "1.0.0",
+  "description": "",
+  "main": " ",
+  "scripts": {
+    "test": " ",
+    "gulp": "gulp"
+  },
+  "author": "",
+  "license": "",
+  "dependencies": {
+    "normalize.css": "^4.1.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.3.3",
+    "gulp": "^3.9.1",
+    "gulp-less": "^3.0.5",
+    "gulp-postcss": "^6.1.0"
+  },
+  "overrides": {
+    "graceful-fs": "^4.2.10"
+  }
+}
