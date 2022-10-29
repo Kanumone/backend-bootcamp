@@ -3,7 +3,8 @@
 ###  Одним запросом получаем все, что нужно
 
 ```mysql
-select s.title,
+select s.section_id,
+       s.title,
        s.description,
        count(p.product_id) as product_quantity
 from sections s
@@ -11,7 +12,8 @@ from sections s
               on s.section_id = ps.section_id
          join products p
               on p.product_id = ps.product_id
-group by s.title;
+group by s.title
+order by product_quantity desc;
 ```
 
 ![task 1](./images/task_1.png)

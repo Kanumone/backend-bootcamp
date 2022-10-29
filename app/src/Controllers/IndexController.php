@@ -14,7 +14,13 @@ class IndexController extends Controller {
     }
 
     public function index() {
-        $this->pageData['title'] = "Welcome Bshop!";
+        $this->pageData['title'] = "Категории товаров";
+        $this->pageData['breadcrumbs'] = array(
+          array(
+              'title' => 'Категории товаров',
+              'active' => true
+          )
+        );
         $this->pageData['sections'] = $this->model->getAllSections();
         $this->view->render('index', $this->pageData);
     }
