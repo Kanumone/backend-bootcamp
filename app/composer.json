@@ -1,0 +1,19 @@
+{
+    "name": "kanumone/bshop",
+    "description": "i20 bootcamp educational project",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Kanumone\\Bshop\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Kanumone",
+            "email": "KuzminAAwork@yandex.ru"
+        }
+    ],
+    "require": {
+        "phroute/phroute": "^2.2"
+    }
+}
