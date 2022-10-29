@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Core;
+namespace Kanumone\Bshop\Core;
 
 class DB {
     private string $user;

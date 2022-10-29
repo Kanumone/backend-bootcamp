@@ -8,7 +8,7 @@ class Model
 
     public function __construct()
     {
-        $DB = new DB('root', 'root', 'db', 'test-admin');
+        $DB = new DB('root', 'root', 'db', 'bootcamp');
         $this->db = $DB->connect();
     }
 }
