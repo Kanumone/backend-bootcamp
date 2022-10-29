@@ -1,3 +1,6 @@
 .idea
 /docker/volumes
 /app/vendor
+/app/node_modules
+.DS_Store
+*/composer.phar
