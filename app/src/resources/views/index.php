@@ -14,7 +14,7 @@
     <div class="sections-wrapper">
         <?php foreach ($pageData['sections'] as $idx => $section) :?>
             <div class="section">
-                <h2><?= $section['title'] ?></h2>
+                <a href="<?= '/section/' . $section['section_id'] ?>" style="text-decoration: none; color: black"><h2><?= $section['title'] ?></h2></a>
                 <div class="section__content"><?= $section['description'] ?></div>
             </div>
         <?php endforeach ;?>
