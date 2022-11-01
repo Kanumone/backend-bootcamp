@@ -14,37 +14,52 @@ class ProductModel extends Model
     }
 
     public function getProductInfo() {
-        $req = 'select p.title,  round(p.price) as price, p.description
+        $req = 'select  p.product_id,
+                        p.title,
+                        round(p.price) as price,
+                        p.description,
+                        p.main_section_id,
+                        p.promo_price,
+                        p.sale_price
                 from products p
                 where product_id = :product_id';
         $st = $this->db->prepare($req);
         $st->execute([
             "product_id" => $this->product_id
         ]);
-        return $st->fetchAll(\PDO::FETCH_ASSOC);
+        return $st->fetch();
     }
 
     public function getImages() {
-        $req = 'select i.path, i.alt, i.type from images i
+        $req = "select i.path, i.alt, i.type from images i
                 join product_image pi
                 on pi.image_id = i.image_id
-                where pi.product_id = :product_id';
+                where pi.product_id = :product_id";
         $st = $this->db->prepare($req);
         $st->execute([
             "product_id" => $this->product_id
         ]);
-        return $st->fetchAll(\PDO::FETCH_ASSOC);
+        $res = $st->fetchAll();
+        $images = array();
+        foreach ($res as $idx => $image) {
+            if ($image['type'] == "main") {
+                $images['main'] = $image;
+            } else {
+                $images['other'][] = $image;
+            }
+        }
+        return $images;
     }
 
     public function getSections() {
-        $req = 'select s.title from sections s
+        $req = 'select s.title, s.section_id from sections s
 	            join product_section ps
                 on ps.section_id = s.section_id
-                where ps.product_id = :product_id;';
+                where ps.product_id = :product_id';
         $st = $this->db->prepare($req);
         $st->execute([
             "product_id" => $this->product_id
         ]);
-        return $st->fetchAll(\PDO::FETCH_ASSOC);
+        return $st->fetchAll();
     }
 }

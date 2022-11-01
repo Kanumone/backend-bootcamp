@@ -1,38 +1,31 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title><?= $pageData['product_info'][0]['title'] ?></title>
-    <link rel="stylesheet" href="<?= SITE_PATH . "css/main.css"?>">
-</head>
-<body>
+
 <div class="layout">
     <div class="slider">
-        <?php foreach($pageData['images'] as $idx => $image): ?>
-            <img src="<?= SITE_PATH . $image['path'] ?>"
-                 <?php if ($idx === 0) echo "class='first'" ?>
-                 alt="<?= $image['alt'] ?>"
-            >
-        <?php endforeach; ?>
+        <?php if (!empty($pageData['images']['other'])) :?>
+            <?php foreach($pageData['images']['other'] as $idx => $image): ?>
+                <img src="<?= SITE_PATH . $image['path'] ?>"
+                    <?php if ($idx === 0) echo "class='first'" ?>
+                     alt="<?= $image['alt'] ?>"
+                >
+            <?php endforeach; ?>
+        <?php endif ;?>
+
     </div>
-    <img class="main-img" src="<?= SITE_PATH . $pageData['images'][0]['path'] ?>" alt="<?= $pageData['images'][0]['alt'] ?>">
+    <img class="main-img" src="<?= SITE_PATH . $pageData['images']['main']['path'] ?>" alt="<?= $pageData['images']['main']['alt'] ?>">
     <div class="product-info">
         <div class="product-info__header">
-            <h2><?= $pageData['product_info'][0]['title'] ?></h2>
+            <h2><?= $pageData['product_info']['title'] ?></h2>
             <div class="product-info__categories">
                 <?php foreach ($pageData['sections'] as $idx => $section): ?>
-                    <a href="#"><?= $section['title'] ?></a>
+                    <a href="<?= SITE_PATH . "section/{$section['section_id']}" ?>"><?= $section['title'] ?></a>
                 <?php endforeach; ?>
             </div>
         </div>
 
         <div class="product-info__price">
-            <div class="price__main" style="font-weight: 600"><span class="price__main_through"><?= number_format($pageData['product_info'][0]['price'], 0, ',',' ') ?></span><span
-                        style="margin-left: 8px;">2 499 ₽</span></div>
-            <div class="price__promo"><span style="font-weight: 600">2 227 ₽</span><span style="font-size: 16px"> — с промокодом</span>
+            <div class="price__main" style="font-weight: 600"><span class="price__main_through"><?= $this->formatPrice($pageData['product_info']['price'], 2) ?></span><span
+                        style="margin-left: 8px;"><?= $this->formatPrice($pageData['product_info']['sale_price']) ?></span></div>
+            <div class="price__promo"><span style="font-weight: 600"><?= $this->formatPrice($pageData['product_info']['promo_price']) ?> ₽</span><span style="font-size: 16px"> — с промокодом</span>
             </div>
         </div>
         <div class="product-info__options">
@@ -55,7 +48,7 @@
             <button class="product-info__button">В ИЗБРАННОЕ</button>
         </div>
         <div class="product-info__description">
-            <?= $pageData['product_info'][0]['description'] ?>
+            <?= $pageData['product_info']['description'] ?>
         </div>
         <div class="product-info__social">
             <div class="social__text">ПОДЕЛИТЬСЯ:</div>
@@ -74,5 +67,3 @@
 <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script src="<?= SITE_PATH . "js/changeImg.js"?>"></script>
 <script src="<?= SITE_PATH .  "js/quantity.js"?>"></script>
-</body>
-</html>
