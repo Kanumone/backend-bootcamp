@@ -3,7 +3,7 @@
   margin-top: 10px;
 }
 
-.product-info__price, .product-info__quantity, .product-info__header,
+.product-info__price, .product-info__quantity,
 .product-info__social {
   margin-top: 50px;
 }
@@ -15,11 +15,12 @@
 .product-info__header h2 {
   font-size: 24px;
   letter-spacing: 1px;
+  font-weight: bold;
 }
 
 .product-info__categories {
   display: flex;
-  justify-content: space-between;
+  gap: 30px;
   font-size: 13px;
   margin-top: 20px;
 }
@@ -44,7 +45,6 @@
   position: absolute;
   content: "";
   border-bottom: 1px solid #c3c2c2;
-  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -72,12 +72,10 @@
 
 .product-info__quantity {
   display: flex;
-  width: 130px;
   border: 2px solid #c4c3c3;
   border-radius: 4px;
   font: inherit;
   height: 42px;
-  width: 140px;
 }
 
 .product-info__quantity > button {
@@ -115,7 +113,7 @@ input::-webkit-inner-spin-button {
   border: none;
   font-size: 14px;
   min-width: 250px;
-  padding: 12px 0px;
+  padding: 12px 0;
   cursor: pointer;
 }
 
