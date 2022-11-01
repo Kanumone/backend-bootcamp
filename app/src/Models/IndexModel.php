@@ -19,6 +19,6 @@ class IndexModel extends Model {
                 order by product_quantity desc";
         $st = $this->db->prepare($req);
         $st->execute();
-        return $st->fetchAll(\PDO::FETCH_ASSOC);
+        return $st->fetchAll();
     }
 }
