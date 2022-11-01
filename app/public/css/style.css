@@ -2,20 +2,33 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Circe, sans-serif;
 }
 
 body {
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
     overflow-x: hidden;
 }
 
+header, footer {
+    padding: 8px;
+    text-align: center
+}
+
 .container {
-    width: 100vw;
-    height: 100vh;
+    flex: 1 0 auto;
 }
 
 .container h1 {
     text-align: center;
     margin-top: 20px;
+}
+
+.navbar {
+    margin-top: 22px;
 }
 
 .sections-wrapper {
@@ -37,12 +50,18 @@ body {
 }
 
 .section h2 {
-    font-size: 36px;
-    text-align: center;
+    font-size: 28px;
+}
+
+.section .quantity {
+    min-width: 80px;
 }
 
 .section__content {
-    font-size: 26px;
-    margin-top: 30px;
-    margin-bottom: 20px;
+    font-size: 22px;
+    margin-top: 26px;
+}
+
+footer {
+    flex: 0 0 auto;
 }
