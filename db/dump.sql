@@ -18,8 +18,9 @@
 --
 -- Create database
 --
-
+DROP DATABASE IF EXISTS bootcamp;
 CREATE DATABASE bootcamp;
+USE bootcamp;
 
 --
 -- Table structure for table `images`
