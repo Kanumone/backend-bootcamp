@@ -18,9 +18,38 @@
 --
 -- Create database
 --
+
 DROP DATABASE IF EXISTS bootcamp;
 CREATE DATABASE bootcamp;
 USE bootcamp;
+
+--
+-- Table structure for table `forms`
+--
+
+DROP TABLE IF EXISTS `forms`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `forms` (
+  `id` int unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `sex` varchar(20) NOT NULL,
+  `birthday` date NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `comment` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `forms`
+--
+
+LOCK TABLES `forms` WRITE;
+/*!40000 ALTER TABLE `forms` DISABLE KEYS */;
+/*!40000 ALTER TABLE `forms` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `images`
@@ -174,4 +203,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-11-02  2:40:51
+-- Dump completed on 2022-11-02 15:37:34
