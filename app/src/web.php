@@ -2,6 +2,7 @@
 
 namespace Phroute\Phroute;
 
+use Kanumone\Bshop\Controllers\FormController;
 use Kanumone\Bshop\Controllers\ProductController;
 use Kanumone\Bshop\Controllers\SectionController;
 
@@ -23,6 +24,11 @@ $router->get('/section/{section_id:i}', function ($section_id) {
 $router->get('/section/{section_id:i}/product/{product_id:i}', function ($section_id, $product_id) {
     $controller = new ProductController($section_id, $product_id);
     $controller->show();
+});
+
+$router->group(['prefix' => 'form'], function ($router) {
+    $router->get('/', ['\Kanumone\Bshop\Controllers\FormController', 'show']);
+    $router->post('/', ['\Kanumone\Bshop\Controllers\FormController', 'send']);
 });
 
 $dispatcher = new Dispatcher($router->getData());
