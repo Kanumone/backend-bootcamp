@@ -8,7 +8,7 @@ class View
     {
         require_once TEMPLATES_PATH . 'header.php';
         require_once TEMPLATES_PATH . $template . '.php';
-        if (!empty($pageData['pagination'])) require_once TEMPLATES_PATH . 'pagination.php';
+        if (!empty($pageData['pagination']['render'])) require_once TEMPLATES_PATH . 'pagination.php';
         require_once TEMPLATES_PATH . 'footer.php';
     }
 

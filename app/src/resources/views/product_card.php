@@ -23,10 +23,20 @@
         </div>
 
         <div class="product-info__price">
-            <div class="price__main" style="font-weight: 600"><span class="price__main_through"><?= $this->formatPrice($pageData['product_info']['price'], 2) ?></span><span
-                        style="margin-left: 8px;"><?= $this->formatPrice($pageData['product_info']['sale_price']) ?></span></div>
-            <div class="price__promo"><span style="font-weight: 600"><?= $this->formatPrice($pageData['product_info']['promo_price']) ?> ₽</span><span style="font-size: 16px"> — с промокодом</span>
-            </div>
+
+            <?php if ($pageData['product_info']['sale_price'] == 0) :?>
+                <div class="price__main"><?= $this->formatPrice($pageData['product_info']['price'], 2) ?> ₽</div>
+            <?php else: ?>
+                <div class="price__main" style="font-weight: 600"><span class="price__main_through"><?= $this->formatPrice($pageData['product_info']['price'], 2) ?></span><span
+                            style="margin-left: 8px;"><?= $this->formatPrice($pageData['product_info']['sale_price']) ?></span></div>
+            <?php endif ;?>
+
+            <?php if (!empty($pageData['product_info']['promo_price'])) :?>
+                <div class="price__promo">
+                    <span style="font-weight: 600"><?= $this->formatPrice($pageData['product_info']['promo_price']) ?> ₽</span><span style="font-size: 16px"> — с промокодом</span>
+                </div>
+            <?php endif ;?>
+
         </div>
         <div class="product-info__options">
             <div>

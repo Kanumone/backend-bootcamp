@@ -37,10 +37,11 @@ class SectionController extends Controller {
     private function pagination($itemPerPage): array | bool {
         $params = array(
             'currentPage' => empty($_GET['page']) ? 1 : $_GET['page'],
-            'countPages' => ceil($this->model->countProducts() / $itemPerPage)
+            'countPages' => ceil($this->model->countProducts() / $itemPerPage),
+            'render' => true
         );
 
-        if ($params['countPages'] == 1) return false;
-        else return $params;
+        if ($params['countPages'] == 1) $params['render'] = false;
+        return $params;
     }
 }
