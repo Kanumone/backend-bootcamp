@@ -17,11 +17,11 @@ $router = new RouteCollector();
 
 $router->get('/', ['\Kanumone\Bshop\Controllers\IndexController', 'index']);
 $router->get('/section/{section_id:i}', function ($section_id) {
-    $controller = new SectionController();
-    $controller->show($section_id);
+    $controller = new SectionController($section_id);
+    $controller->show();
 });
 $router->get('/section/{section_id:i}/product/{product_id:i}', function ($section_id, $product_id) {
-    $controller = new ProductController($product_id);
+    $controller = new ProductController($section_id, $product_id);
     $controller->show();
 });
 

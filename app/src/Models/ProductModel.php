@@ -4,13 +4,10 @@ namespace Kanumone\Bshop\Models;
 
 use Kanumone\Bshop\Core\Model;
 
-class ProductModel extends Model
-{
-    private int $product_id;
+class ProductModel extends Model {
 
-    public function __construct($product_id) {
+    public function __construct(private $section_id, private $product_id) {
         parent::__construct();
-        $this->product_id = $product_id;
     }
 
     public function getProductInfo() {
@@ -20,11 +17,18 @@ class ProductModel extends Model
                         p.description,
                         p.main_section_id,
                         p.promo_price,
-                        p.sale_price
+                        p.sale_price,
+                        s.section_id,
+                        s.title as section
                 from products p
-                where product_id = :product_id';
+                join product_section ps
+                    on ps.product_id = p.product_id
+                join sections s
+                    on ps.section_id = s.section_id
+                where p.product_id = :product_id and ps.section_id = :section_id';
         $st = $this->db->prepare($req);
         $st->execute([
+            "section_id" => $this->section_id,
             "product_id" => $this->product_id
         ]);
         return $st->fetch();

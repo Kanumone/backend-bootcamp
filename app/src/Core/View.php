@@ -8,6 +8,7 @@ class View
     {
         require_once TEMPLATES_PATH . 'header.php';
         require_once TEMPLATES_PATH . $template . '.php';
+        if (!empty($pageData['pagination']['render'])) require_once TEMPLATES_PATH . 'pagination.php';
         require_once TEMPLATES_PATH . 'footer.php';
     }
 
@@ -19,23 +20,9 @@ class View
         }
     }
 
-    public function pagination($amountItems, $itemPerPage) {
-        $countPages = $amountItems / $itemPerPage;
-        $html = '
-            <nav aria-label="pagination">
-              <ul class="pagination pagination-lg justify-content-center">
-        ';
-        for ($i = 1; $i <= $countPages; $i++) {
-            $html .= "
-                <li class=\"page-item\" aria-current=\"page\">
-                  <span class=\"page-link\">$i</span>
-                </li>
-            ";
-        }
-        $html .= '
-                </ul>
-            </nav>
-        ';
-        return $html;
+    public function notFound() {
+        http_response_code(404);
+        require_once SRC_PATH . '/resources/404.php';
+        die();
     }
 }
