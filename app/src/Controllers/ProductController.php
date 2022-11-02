@@ -7,14 +7,16 @@ use Kanumone\Bshop\Models\ProductModel;
 
 class ProductController extends Controller
 {
-    public function __construct($product_id)
+    public function __construct($section_id, $product_id)
     {
         parent::__construct();
-        $this->model = new ProductModel($product_id);
+        $this->model = new ProductModel($section_id, $product_id);
     }
 
     public function show() {
         $this->pageData['product_info'] = $this->model->getProductInfo();
+        if ($this->pageData['product_info'] === false) $this->view->notFound();
+
         $this->pageData['images'] = $this->model->getImages();
         $this->pageData['sections'] = $this->model->getSections();
         $this->pageData['title'] = $this->pageData['product_info']['title'];
@@ -25,7 +27,7 @@ class ProductController extends Controller
                 'active' => false
             ),
             array(
-                'title' => "Секция",
+                'title' => $this->pageData['product_info']['section'],
                 'active' => false
             ),
             array(
