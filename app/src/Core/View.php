@@ -7,6 +7,7 @@ class View
     public function render($template, $pageData = array())
     {
         require_once TEMPLATES_PATH . 'header.php';
+        if (!empty($pageData['breadcrumbs'])) require_once TEMPLATES_PATH . 'breadcrumbs.php';
         require_once TEMPLATES_PATH . $template . '.php';
         if (!empty($pageData['pagination']['render'])) require_once TEMPLATES_PATH . 'pagination.php';
         require_once TEMPLATES_PATH . 'footer.php';
