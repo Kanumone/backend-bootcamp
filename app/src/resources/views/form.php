@@ -1,13 +1,13 @@
 <link rel="stylesheet" href="/css/form.css">
 
-<form id="authorization-form" method="post">
+<form id="feedback-form" method="post">
     <div class="name-container">
         <label class="form__data-label">Имя</label>
-        <input required type="text" name="name" class="authorization-form__data-input" value="<?= $pageData['name'] ?>">
+        <input required type="text" name="name" class="feedback-form__data-input" value="<?= $pageData['name'] ?>">
     </div>
     <div class="email-container">
         <label class="form__data-label" >Email</label>
-        <input required type="email" name="email" class="authorization-form__data-input" value="<?= $pageData['email'] ?>">
+        <input required type="email" name="email" class="feedback-form__data-input" value="<?= $pageData['email'] ?>">
     </div>
     <label for="birthday" class="form__data-label">Дата рождения</label>
     <input type="date" name="birthday" value="<?= $pageData['birthday'] ?>">
@@ -25,7 +25,7 @@
     <textarea required name="comment"></textarea>
     <div>
         <input required type="checkbox" id="rules" name="rules" class="form__data-label">
-        <label class="authorization-form__checkbox-label" for="rules">С правилами ознакомлен</label>
+        <label class="feedback-form__checkbox-label" for="rules">С правилами ознакомлен</label>
     </div>
-    <button type="submit" class="authorization-form__button">Отправить</button>
+    <button type="submit" class="feedback-form__button">Отправить</button>
 </form>

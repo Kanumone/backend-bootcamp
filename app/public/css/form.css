@@ -1,8 +1,9 @@
-form {
+#feedback-form {
+    display: flex;
+    flex-direction: column;
     max-width: 25%;
     margin: 0 auto;
 }
-
 
 .form__data-label {
     color:rgb(85,85,95);
@@ -15,16 +16,11 @@ form {
     font-size: 14px;
 }
 
-.authorization-form__checkbox-label {
+.checkbox-label {
     color: #999999;
 }
 
-#authorization-form {
-    display: flex;
-    flex-direction: column;
-}
-
-.authorization-form__data-input {
+.feedback-form__data-input {
     display: flex;
     flex-direction: column;
     border: rgb(230,230,230) 1px solid;
@@ -35,14 +31,7 @@ form {
     border-radius: 5px;
 }
 
-.options-wrapper {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 2vh;
-    margin-bottom: 5vh;
-}
-
-.authorization-form__button {
+.feedback-form__button {
     background-color: #333333;
     color: white;
     width: 40%;
@@ -53,12 +42,6 @@ form {
     margin-top: 16px;
 }
 
-.options-wrapper__forgot-link {
-    text-decoration: none;
-    color: #847f7f;
-}
-
-.authorization-form__checkbox-label, .options-wrapper__forgot-link {
+.feedback-form__checkbox-label {
     font-size: 14px;
-
 }
