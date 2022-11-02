@@ -512,9 +512,9 @@ img {
   color: #c3c2c2;
 }
 .price__main_through:before {
+  position: absolute;
   content: "";
   border-bottom: 1px solid #c3c2c2;
-  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
@@ -545,6 +545,7 @@ img {
   border-radius: 4px;
   font: inherit;
   height: 42px;
+  width: 140px;
 }
 .product-info__quantity > button {
   padding: 0;
