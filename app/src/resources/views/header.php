@@ -36,10 +36,10 @@
                 $nesting = count($pageData['breadcrumbs']);
                 if ($nesting === 2) :?>
                 <a href="<?= SITE_PATH ?>" style="margin-left: 8px; text-decoration: none">Назад</a>
-            <?php elseif ($nesting === 3 ):
-                    if (str_contains($_SERVER['HTTP_REFERER'], $_SERVER['HTTP_HOST']) ): ?>
-                        <a href="<?= $_SERVER['HTTP_REFERER'] ?>" style="margin-left: 8px; text-decoration: none">Назад</a>
-                    <?php endif; ?>
+            <?php elseif ($nesting === 3 ):?>
+
+                <a href="<?= SITE_PATH . 'section/' . $pageData['product_info']['section_id'] ?>" style="margin-left: 8px; text-decoration: none">Назад</a>
+
             <?php endif ;?>
 
         </div>
