@@ -13,7 +13,7 @@
         <?php
         $nesting = count($pageData['breadcrumbs']);
         if ($nesting === 2) :?>
-            <a href="<?= SITE_PATH ?>" style="margin-left: 8px; text-decoration: none">Назад</a>
+            <a href="<?= SITE_PATH ?>" style="margin-left: 8px;">Назад</a>
         <?php elseif ($nesting === 3 ):?>
 
             <a href="<?= SITE_PATH . 'section/' . $pageData['product_info']['section_id'] ?>" style="margin-left: 8px; text-decoration: none">Назад</a>

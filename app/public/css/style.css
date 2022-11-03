@@ -18,6 +18,10 @@ header, footer {
     text-align: center
 }
 
+.navbar__buttons a {
+    text-decoration: none;
+}
+
 .container {
     flex: 1 0 auto;
 }
