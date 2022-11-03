@@ -11,7 +11,7 @@
     </div>
     <div class="input-container">
         <label for="birthday" class="form__data-label">Дата рождения</label>
-        <input type="date" name="birthday" value="<?= $pageData['birthday'] ?>">
+        <input class="feedback-form__date-input" type="date" name="birthday" value="<?= $pageData['birthday'] ?>">
     </div>
 
     <div class="input-container" style="margin-top: 20px;">
